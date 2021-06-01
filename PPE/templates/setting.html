@@ -1,0 +1,113 @@
+{% extends 'Master.html' %}
+{% load crispy_forms_tags %}
+{% block index %}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="align-items-center justify-content-between mb-4">
+        <div class="row">
+            <div class="col-9">
+                <h1 class="h3 mb-0 text-gray-800">Daemon Setting</h1>
+
+            </div>
+            <div class="col-3">
+                <a href="{% url 'reloadDaemons' %}" class="btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i> Reload Daemons</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- {% for data in datasss %}
+        {{data.Store_Name}}
+{% endfor %} -->
+        <!-- Earnings (Monthly) Card Example -->
+       
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <th width="20%">Store Name</th>
+                            <th width="15%">Store UID</th>
+                            <th width="20%">Store IP</th>
+                            <th width="20%">Daemon Status</th>
+                            <th width="25%">Action</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for data in configrationData %}
+                        <tr>
+                            <td>{{data.Store_Name}}</td>
+                            <td>{{data.Store_UID}}</td>
+                            <td>{{data.Store_IP}}</td>
+                            <td>
+                                    {% if data.status == 0 %}
+                                        <p style="color: red;">Disabled</p>
+                                    {% elif data.status == 1 %}
+                                        <p style="color: green;">Running</p>
+                                    {% elif data.status == 2 %}
+                                        <p style="color: rgb(165, 100, 1);">Stopped</p>
+                                    {% elif data.status == 3 %}
+                                        <p style="color: rgb(81, 141, 131);">Enabled</p>
+                                    {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'enableDaemon' serviceName=data.Store_Name pk=data.pk %}" class="btn btn-sm btn-primary shadow-sm"
+                                    >
+                                    Enable </a> |
+                                <a href="{% url 'startDaemon' serviceName=data.Store_Name pk=data.pk %}" class="btn btn-sm btn-success shadow-sm"
+                                    > Start </a> |
+                                <a href="{% url 'stopDaemon' serviceName=data.Store_Name pk=data.pk %}" class="btn btn-sm btn-warning shadow-sm"
+                                    > Stop </a> |
+                                <a href="{% url 'disableDaemon' serviceName=data.Store_Name pk=data.pk %}" class="btn btn-sm btn-danger shadow-sm"
+                                    > Disable </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form action="{% url 'import_stores_xls' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Capture Data</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="file" name="configfile">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-sm btn-primary shadow-mm">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endblock %}

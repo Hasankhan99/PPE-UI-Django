@@ -1,0 +1,152 @@
+{% extends 'Master.html' %}
+{% load crispy_forms_tags %}
+{% block index %}
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="align-items-center justify-content-between mb-4">
+        <div class="row">
+            <div class="col-9">
+                <h1 class="h3 mb-0 text-gray-800">Configration Capture Program</h1>
+
+            </div>
+            <div class="col-3">
+                <a href="{% url 'export' %}" class="btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i> Export Data</a>
+                <a href="#" class=" btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#modelId"><i
+                        class="fas fa-download fa-sm text-white-50"></i> Import Data</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- {% for data in datasss %}
+        {{data.Store_Name}}
+{% endfor %} -->
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-12 mb-4">
+            <div class="form-group">
+                <form action="" method="post" noValidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="status" value="0">
+                    <div class="row">
+                        <div class="col-3">
+                            {{form.Market_name|as_crispy_field}}
+                        </div>
+                        <div class="col-3">
+                            {{form.Store_Name|as_crispy_field}}
+                        </div>
+                        <div class="col-3">
+                            {{form.Store_UID|as_crispy_field}}
+                        </div>
+                        <div class="col-3">
+                            {{form.Store_IP|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            {{form.rtsp_username|as_crispy_field}}
+                        </div>
+                        <div class="col-3">
+                            {{form.rtsp_pass|as_crispy_field}}
+                        </div>
+                        <div class="col-3">
+                            {{form.rtsplink|as_crispy_field}}
+                        </div>
+                        <div class="col-3">
+                            {{form.snaptime|as_crispy_field}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            {{form.Path|as_crispy_field}}
+                        </div>
+                    </div>
+
+                    <input class="btn btn-sm btn-primary shadow-mm" type="Submit">
+
+                </form>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <th>Market Name</th>
+                            <th>Store Name</th>
+                            <th>Store UID</th>
+                            <th>Store IP</th>
+                            <th>RTSP Username</th>
+                            <th>RTSP Password</th>
+                            <th>RTSP Link</th>
+                            <th>Capture Time</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for data in configrationData%}
+                        <tr>
+                            <td>{{data.Market_name}}</td>
+                            <td>{{data.Store_Name}}</td>
+                            <td>{{data.Store_UID}}</td>
+                            <td>{{data.Store_IP}}</td>
+                            <td>{{data.rtsp_username}}</td>
+                            <td>{{data.rtsp_pass}}</td>
+                            <td>{{data.rtsplink}}</td>
+                            <td>{{data.snaptime}}</td>
+                            <td>
+                                <a href="{% url 'config_edit' pk=data.pk %}" class="btn btn-sm btn-primary shadow-sm">
+                                    Edit </a> |
+                                <a href="{% url 'config_delete' pk=data.pk %}" class="btn btn-sm btn-danger shadow-sm"
+                                    onclick="return confirm('Are you sure?')"> Delete </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form action="{% url 'import_stores_xls' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Capture Data</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="file" name="configfile">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-sm btn-primary shadow-mm">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endblock %}
