@@ -4,155 +4,205 @@
 
 <div class="container-fluid">
 
-<!-- Grid row -->
-<h1>Click On it</h1>
-<div class="row">
+    <!-- Grid row -->
+    <h1>AI PPE MANAGEMENT SOLUTION </h1>
 
-  <!-- Grid column -->
-  <div class="col-lg-4 col-md-12 mb-4">
+    <div class="row">
+        <div class="col-8">
 
-    <!--Modal: Name-->
-    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-
-        <!--Content-->
-        <div class="modal-content">
-
-          <!--Body-->
-          <div class="modal-body mb-0 p-0">
-
-            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/A3PDXmYoF5U"
-                allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-4 ">
+                    <div class="card mx-2" style="width: 18rem;">
+                        <img width="100%" height="200em" class="card-img-top"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRytN3qUezWM7NrOl2ez5pHWLubDubhc5Awew&usqp=CAU">
+                        <div class="card-body">
+                            <h5 class="card-title">PPE Detection</h5>
+                            <p class="card-text">That protects the user against health or safety risks. Not wearing PPE
+                                dramatically increases the chances of injuries and in many situations also of financial losses
+                                due to fines for injuries and death of workers as well as contamination caused by not wearing
+                                gloves, hairnets, shoe covers, etc. </p>
+                            <a href="#" data-image-id="" data-toggle="modal" data-title="" data-target="#image-gallery"
+                                class="btn btn-primary">Go For live View</a>
+        
+        
+                            <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                    aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <div class="modal-body">
+                                                <img id="image-gallery-image" class="img-responsive col-md-12"
+                                                    src="{% url 'livefe' %}">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary float-left"
+                                                    id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                                </button>
+        
+                                                <button type="button" id="show-next-image"
+                                                    class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                                </button>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="col-4">
+                    
+                    <div class="card mx-2" style="width: 18rem;">
+                        <img class="card-img-top" width="100%" height="200em"
+                            src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/stats.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Warm Zone detection</h5>
+                            <p class="card-text">Warm Zone – Contamination Reduction Zone (CRZ): This is also a high risk area
+                                due to potential exposure to pathogens and chemical disinfectants.Warm Zone, they should move to
+                                the Cold
+                                Zone/Support Zone (SZ) through the designated
+                                access points.
+                                personnel are required to wear full PPE </p>
+                            <a href="#" data-image-id="" data-toggle="modal" data-title="" data-target="#image-gallery"
+                                class="btn btn-primary">Go For live View</a>
+        
+        
+                            <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                    aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <div class="modal-body">
+                                                <img id="image-gallery-image" class="img-responsive col-md-12"
+                                                    src="{% url 'livefe' %}">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary float-left"
+                                                    id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                                </button>
+        
+                                                <button type="button" id="show-next-image"
+                                                    class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                                </button>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="col-4">
+                    
+                    <div class="card mx-2" style="width: 18rem;">
+                        <img class="card-img-top" width="100%" height="200em"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2aZJf060aHTfPUSqKmhEnmxZVEiR1c-ArMi4Xm_2wVrwreGmAEqFfxETBFLp2OvKnd4w&usqp=CAU"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Live Steaming</h5>
+                            <p class="card-text">Protects the user against health or safety risks. Not wearing PPE dramatically
+                                increases the chances of injuries and in many situations also of financial losses due to fines
+                                for injuries and death of workers as well as contamination caused by not wearing gloves,
+                                hairnets, shoe covers, etc. </p>
+                            <a href="#" data-image-id="" data-toggle="modal" data-title="" data-target="#image-gallery"
+                                class="btn btn-primary">Go For live View</a>
+        
+        
+                            <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                    aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <div class="modal-body">
+                                                <img id="image-gallery-image" class="img-responsive col-md-12"
+                                                    src="{% url 'livefe' %}">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary float-left"
+                                                    id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                                </button>
+        
+                                                <button type="button" id="show-next-image"
+                                                    class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                                </button>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-          </div>
-
-          <!--Footer-->
-          <div class="modal-footer justify-content-center">
-            <span class="mr-4">Spread the word!</span>
-            <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-            <!--Twitter-->
-            <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-            <!--Google +-->
-            <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-            <!--Linkedin-->
-            <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-          </div>
-
+            
         </div>
-        <!--/.Content-->
-
-      </div>
-    </div>
-    <!--Modal: Name-->
-
-    <a><img class="img-fluid z-depth-1" src="https://mdbootstrap.com/img/screens/yt/screen-video-1.jpg" alt="video"
-        data-toggle="modal" data-target="#modal1"></a>
-
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="col-lg-4 col-md-6 mb-4">
-
-    <!--Modal: Name-->
-    <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-
-        <!--Content-->
-        <div class="modal-content">
-
-          <!--Body-->
-          <div class="modal-body mb-0 p-0">
-
-            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/wTcNtgA6gHs"
-                allowfullscreen></iframe>
-            </div>
-
-          </div>
-
-          <!--Footer-->
-          <div class="modal-footer justify-content-center">
-            <span class="mr-4">Spread the word!</span>
-            <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-            <!--Twitter-->
-            <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-            <!--Google +-->
-            <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-            <!--Linkedin-->
-            <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-          </div>
-
+        <div class="col-4" >
+            <table class="table table-bordered">
+                <tr> 
+                    <td>Name</td>
+                    <td>{{data.Name}}</td>               
+                </tr>
+                {% for data in PPEdata %}
+                <td>{{data.Name}}</td>
+                {% endfor %}
+                
+            </table>
         </div>
-        <!--/.Content-->
 
-      </div>
     </div>
-    <!--Modal: Name-->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                <thead>
 
-    <a><img class="img-fluid z-depth-1" src="https://mdbootstrap.com/img/screens/yt/screen-video-2.jpg" alt="video"
-        data-toggle="modal" data-target="#modal6"></a>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Suggestion</th>
+                        <th>Rating</th>
+                    </tr>
 
-  </div>
-  <!-- Grid column -->
+                </thead>
+                <tbody>
+                    {% for data in PPEdata%}
+                    <tr>
+                        <td>{{data.Name}}</td>
+                        <td>{{data.Department}}</td>
+                        <td>{{data.Suggestion}}</td>
+                        <td>{{data.Rating}}</td>
 
-  <!-- Grid column -->
-  <div class="col-lg-4 col-md-6 mb-4">
+                        {% endfor %}
 
-    <!--Modal: Name-->
-    <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-
-        <!--Content-->
-        <div class="modal-content">
-
-          <!--Body-->
-          <div class="modal-body mb-0 p-0">
-
-            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM"
-                allowfullscreen></iframe>
-            </div>
-
-          </div>
-
-          <!--Footer-->
-          <div class="modal-footer justify-content-center">
-            <span class="mr-4">Spread the word!</span>
-            <a type="button" class="btn-floating btn-sm btn-fb"><i class="fab fa-facebook-f"></i></a>
-            <!--Twitter-->
-            <a type="button" class="btn-floating btn-sm btn-tw"><i class="fab fa-twitter"></i></a>
-            <!--Google +-->
-            <a type="button" class="btn-floating btn-sm btn-gplus"><i class="fab fa-google-plus-g"></i></a>
-            <!--Linkedin-->
-            <a type="button" class="btn-floating btn-sm btn-ins"><i class="fab fa-linkedin-in"></i></a>
-
-            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
-
-          </div>
-
+                </tbody>
+            </table>
         </div>
-        <!--/.Content-->
-
-      </div>
     </div>
-    <!--Modal: Name-->
-
-    <a><img class="img-fluid z-depth-1" src="https://mdbootstrap.com/img/screens/yt/screen-video-3.jpg" alt="video"
-        data-toggle="modal" data-target="#modal4"></a>
-
-  </div>
-  <!-- Grid column -->
 
 </div>
-</div>
-<!-- Grid row -->
+
+<!-- Modal gallery -->
+
 {% endblock %}

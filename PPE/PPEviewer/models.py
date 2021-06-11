@@ -10,3 +10,13 @@ class feedback(models.Model):
 
     # def __str__(self):
     #     self.Name
+class ppeviwer(models.Model):
+    name=(models.CharField(max_length=50))
+    missed_ppe=(models.CharField(max_length=50))
+    time=(models.CharField(max_length=50))
+    date=(models.IntegerField(default=50))
+
+
+
+
+
