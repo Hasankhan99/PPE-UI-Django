@@ -14,7 +14,11 @@ class ppeviwer(models.Model):
     name=(models.CharField(max_length=50))
     missed_ppe=(models.CharField(max_length=50))
     time=(models.CharField(max_length=50))
-    date=(models.IntegerField(default=50))
+    date=models.DateField(auto_now_add=True)
+    pm=models.ImageField(upload_to='images/')
+
+
+
 
 
 

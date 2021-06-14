@@ -8,7 +8,7 @@
     <h1>AI PPE MANAGEMENT SOLUTION </h1>
 
     <div class="row">
-        <div class="col-8">
+        <div class="col">
 
             <div class="row">
                 <div class="col-4 ">
@@ -156,20 +156,49 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12">
+                    <table class='table'>
+                        {% for data in snapdata %}
+                        <tr>
+                            <td>{{data.name}}</td>
+                            <td><img src="{{ data.pm.url }}" class="img-responsive"  /></td>
+                        </tr>
+                        <img src="{{ data.pm.url }}" class="img-responsive"  />
+                        {% endfor %}
+                    </table>
+
+                </div>
+                
+
             </div>
             
         </div>
-        <div class="col-4" >
-            <table class="table table-bordered">
-                <tr> 
-                    <td>Name</td>
-                    <td>{{data.Name}}</td>               
-                </tr>
-                {% for data in PPEdata %}
-                <td>{{data.Name}}</td>
-                {% endfor %}
-                
-            </table>
+
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <form method = "post" enctype="multipart/form-data">
+                <div class="col-12 mb-4">
+                    <div class="form-group">
+                        <form action="" method="post" noValidate>
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="0">
+                            <div class="row">
+                                <div class="col-3">
+                                    {{form.name|as_crispy_field}}
+                                </div>
+                                <div class="col-3">
+                                    {{form.missed_ppe|as_crispy_field}}
+                                </div>
+                                <div class="col-3">
+                                    {{form.time|as_crispy_field}}
+                                </div>
+                                <div class="col-3">
+                                    {{form.pm|as_crispy_field}}
+                                </div>
+                                <button class='btn-primary' type="submit">Submit</button>
+                            </div>
+                </div>
         </div>
 
     </div>

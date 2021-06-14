@@ -1,7 +1,6 @@
-import cv2
 from django.shortcuts import render
 from .models import feedback,ppeviwer
-from .forms import PPEviewerForm
+from .forms import PPEviewerForm,ppForm
 from django.shortcuts import render
 from django.http.response import StreamingHttpResponse
 from django.views.decorators import gzip
@@ -17,14 +16,22 @@ def records(request):
     return render(request,'records.html')
 
 def livesteaming(request):
-    ppedata=ppeviwer.objects.all()
-    data = feedback.objects.all()
-    context =  {
-        'PPEdata': data,
-        "ppeviwer":ppedata
-        
-        }
-    return render(request,'livesteaming.html',context)
+    if request.method == 'POST':
+        form = ppForm(request.POST, request.FILES)
+  
+        if form.is_valid():
+            form.save()
+            form=ppForm()
+    else:
+        form = ppForm()
+    snapdata=ppeviwer.objects.all()
+    context={
+        'form' : form,
+        'snapdata':snapdata
+                }
+    return render(request, 'livesteaming.html', context)
+
+    # return render(request,'livesteaming.html')
 
 def gallery(request):
     return render(request,'gallery.html')
@@ -45,7 +52,6 @@ def Fb(request):
         'PPEdata': data
     }
     return render(request,'form.html',context)
-
 
 
 class VideoCamera(object):
