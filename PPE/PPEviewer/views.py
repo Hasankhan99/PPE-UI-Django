@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import feedback,ppeviwer
 from .forms import PPEviewerForm,ppForm
 from django.shortcuts import render
@@ -8,7 +8,17 @@ from django.http import StreamingHttpResponse
 import cv2
 import threading
 from django.core.files import File
-# from .yolov5.detect import logic
+import sys
+import os
+from PPE.settings import BASE_DIR
+
+print(sys.path.append('H:\Edata\PPE-UI-Django\PPE\yolov5'))
+from yolov5 import detect
+# sys.path.append(os.path.abspath(os.path.join('..', 'yolov5')))
+# from yolov5.detect import detect
+
+
+print(sys.path)
 
 # Create your views here.
 def index(request):
@@ -32,22 +42,34 @@ def livesteaming(request):
                      
             form.save()
             form=ppForm()
-            # logic('H:\Edata\PPE-UI-Django\PPE\media\images/')
+            
 
     else:
         form = ppForm()
-    onedata=ppeviwer.objects.latest('id')
+    # onedata=ppeviwer.objects.latest('id')
     alldata=ppeviwer.objects.all()
     context={
         'form' : form,
-        'snapdata':onedata,
+        # 'snapdata':onedata,
         'alldata1':alldata
                 }
-    # logic()
+
+    detect.logic('H:\Edata\PPE-UI-Django\PPE\media\images')
+    
 
     return render(request, 'livesteaming.html', context)
+def deletesnap(request,pk):
+    try:
+        obj=ppeviwer.objects.get(pk=pk)
+        obj.delete()
+        path='H:\Edata\PPE-UI-Django\PPE/'+str(obj.pm.url)
+        os.remove(path)
+      
+    except:
+        return render(request,'livesteaming.html')
 
-    # return render(request,'livesteaming.html')
+
+    return render(request,'livesteaming.html')
 
 def gallery(request):
     snapdata=ppeviwer.objects.all()

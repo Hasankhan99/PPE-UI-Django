@@ -211,6 +211,7 @@
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             {% for data in alldata1 %}
+                           
                           <div class="carousel-item {% if forloop.counter < 2 %} active {% endif %} ">
                             <div class="card">
                                 <img class="d-block w-100" src="{{ data.pm.url }}" alt="First slide" style="height: 300px;">
@@ -223,19 +224,34 @@
                                                 <div class="row">
                                                     <tr>Time:</tr>
                                                     <tr> {{data.time}}</tr>
+                                                    <hr>
                                             </div>
 
                                                 <div class="row">
+
                                                     <tr>Date:</tr>
-                                                    <tr> {{data.date}}</tr></div>
+                                                    <tr> {{data.date}}</tr>
+                                                    <hr>
+                                                </div>
                                                     <div class="row">
                                                         <tr>Missed PPE:</tr>
-                                                        <tr> {{data.missed_ppe}}</tr></div>
+                                                        <tr> {{data.missed_ppe}}</tr>
+                                                        <hr>
+                                                    </div>
+                                                    <div class="row" >
+                                                        <div class="col-3 offset-3">
+
+                                                        <a href= "{% url 'deletesnap' pk=data.pk %}" style="text-align: center;" class="btn btn-sm btn-danger shadow-sm"
+                                                        onclick="return confirm('Are you sure?')"> Delete </a>
+                                                        <hr>
+                                                    </div>
+                                                    </div>
                                         </table>
+                                           
+
+                                        
                                     </div>
-                                    <div class="card-text">
-                                        <p> {{data.time}} </p>
-                                    </div>
+                                    
                                 </div>
 
                             </div>
