@@ -1,0 +1,21 @@
+{% extends 'Master.html' %}
+{% load crispy_forms_tags %}
+{% block index %}
+
+<div class="container-fluid">
+
+
+    <div class="row">
+      {% for images in snap %}
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <img
+            src='{{ images.pm.url }}'
+            class="w-100 shadow-1-strong rounded mb-4"
+            alt=""
+          />
+
+        </div>
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}

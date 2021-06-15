@@ -7,34 +7,56 @@ from django.views.decorators import gzip
 from django.http import StreamingHttpResponse
 import cv2
 import threading
+from django.core.files import File
+from .yolov5.detect import logic
 
 # Create your views here.
 def index(request):
     return render(request,'index.html')
 
 def records(request):
-    return render(request,'records.html')
+    alldata=ppeviwer.objects.all()
+    context={   
+        'alldata1':alldata
+                }
+    return render(request,'records.html',context)
 
 def livesteaming(request):
+
+
+
     if request.method == 'POST':
         form = ppForm(request.POST, request.FILES)
   
         if form.is_valid():
+                     
             form.save()
             form=ppForm()
+            logic('H:\Edata\PPE-UI-Django\PPE\media\images/')
+
     else:
         form = ppForm()
-    snapdata=ppeviwer.objects.all()
+    onedata=ppeviwer.objects.latest('id')
+    alldata=ppeviwer.objects.all()
     context={
         'form' : form,
-        'snapdata':snapdata
+        'snapdata':onedata,
+        'alldata1':alldata
                 }
+    # logic()
+
     return render(request, 'livesteaming.html', context)
 
     # return render(request,'livesteaming.html')
 
 def gallery(request):
-    return render(request,'gallery.html')
+    snapdata=ppeviwer.objects.all()
+    context={
+        'snap':snapdata
+
+    }
+    return render(request,'gallery.html',context)
+
 def Fb(request):
   
     if request.method=='POST':    
