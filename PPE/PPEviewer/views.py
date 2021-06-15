@@ -8,7 +8,7 @@ from django.http import StreamingHttpResponse
 import cv2
 import threading
 from django.core.files import File
-from .yolov5.detect import logic
+# from .yolov5.detect import logic
 
 # Create your views here.
 def index(request):
@@ -32,7 +32,7 @@ def livesteaming(request):
                      
             form.save()
             form=ppForm()
-            logic('H:\Edata\PPE-UI-Django\PPE\media\images/')
+            # logic('H:\Edata\PPE-UI-Django\PPE\media\images/')
 
     else:
         form = ppForm()
