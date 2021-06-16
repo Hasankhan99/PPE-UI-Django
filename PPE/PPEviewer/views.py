@@ -78,6 +78,8 @@ def gallery(request):
 
     }
     return render(request,'gallery.html',context)
+def storedvideo(request):
+    return render(request,'storedvideo.html')
 
 def Fb(request):
   
